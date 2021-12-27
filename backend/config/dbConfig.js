@@ -1,7 +1,9 @@
 const dbConfig = {
         host: 'localhost',
-        user: 'atrater',
-        password: 'Atr4t02021',
+        // user: 'atrater',
+        user: 'root',
+        // password: 'Atr4t02021',
+        password: '',
         database: 'atrato',
         waitForConnections: true,
         connectionLimit: 10,

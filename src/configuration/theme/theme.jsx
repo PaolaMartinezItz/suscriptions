@@ -3,14 +3,18 @@ import {
   grey,
   lightBlue,
   purple,
-  indigo,
+  orange,
+  red,
+  blue,
+  teal,
 } from '@mui/material/colors';
 import { createTheme } from '@mui/material/styles';
 
-const primaryMain = purple[300];
-const primaryOpacity = 'rgba(25, 118, 210, 0.08)';
-const primaryInputHover = purple[200];
-const secondaryMain = indigo[400];
+const primaryLight = teal[100];
+const primaryMain = blue.A200;
+const primaryDark = '#165cad';
+const primaryOpacity = 'rgba(68, 138, 255, 0.08)';
+const backgroundGrey = grey[300];
 const white = '#ffffff';
 const fontFamily = ['Roboto', 'Fantasy'].join(',');
 const fontSize14 = '0.875rem';
@@ -25,6 +29,19 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           minWidth: '8rem',
+        },
+      },
+    },
+    MuiDrawer: {
+      defaultProps: {
+        anchor: 'left',
+        variant: 'permanent',
+      },
+      styleOverrides: {
+        paper: {
+          overflowX: 'hidden',
+          boxSizing: 'border-box',
+          width: 'inherit',
         },
       },
     },
@@ -65,19 +82,18 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           fontFamily,
-          fontWeight: 400,
+          fontSize: fontSize14,
           '&.Mui-selected': {
             backgroundColor: primaryMain,
             color: white,
           },
-          '&:hover': {
-            '&:not(.Mui-disabled)': {
-              '&:before': {
-                borderBottom: `2px solid ${primaryInputHover}`,
-              },
-            },
-          },
-          fontSize: fontSize14,
+        },
+      },
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          fontWeight: 400,
         },
       },
     },
@@ -89,6 +105,9 @@ const theme = createTheme({
       },
     },
     MuiListItem: {
+      defaultProps: {
+        disablePadding: true,
+      },
       styleOverrides: {
         root: {
           fontFamily,
@@ -110,13 +129,6 @@ const theme = createTheme({
         },
       },
     },
-    MuiSelect: {
-      styleOverrides: {
-        root: {
-          fontSize: fontSize14,
-        },
-      },
-    },
     MuiSnackbar: {
       styleOverrides: {
         root: {
@@ -124,20 +136,41 @@ const theme = createTheme({
         },
       },
     },
+    MuiTableContainer: {
+      styleOverrides: {
+        root: {
+          borderRadius: 4,
+        },
+      },
+    },
     MuiTableCell: {
       styleOverrides: {
+        root: {
+          padding: '8px 16px',
+        },
         stickyHeader: {
-          backgroundColor: grey[200],
+          padding: '14px 16px',
+          backgroundColor: primaryDark,
+          color: white,
         },
       },
     },
     MuiTextField: {
-      defaultProps: { variant: 'standard' },
-      styleOverrides: { root: { minWidth: '11.125rem' } },
+      defaultProps: {
+        variant: 'outlined',
+      },
+      styleOverrides: {
+        root: {
+          width: '100%',
+          minWidth: '11.125rem',
+        },
+      },
     },
     MuiTypography: {
-      defaultProps: {
-        color: 'text.primary',
+      styleOverrides: {
+        body2: {
+          fontSize: fontSize14,
+        },
       },
     },
     MuiCssBaseline: {
@@ -148,13 +181,16 @@ const theme = createTheme({
             backgroundColor: white,
             height: 12,
             width: 12,
+            fontSize: fontSize14,
           },
           '&::-webkit-scrollbar-thumb, & *::-webkit-scrollbar-thumb': {
             borderRadius: 8,
-            backgroundColor: grey[300],
+            backgroundColor: backgroundGrey,
           },
           '&::-webkit-scrollbar-thumb:hover, & *::-webkit-scrollbar-thumb:hover':
-          { backgroundColor: grey[400] },
+          {
+            backgroundColor: grey[400],
+          },
         },
       },
     },
@@ -170,12 +206,22 @@ const theme = createTheme({
     },
   },
   palette: {
-    common: { primaryOpacity },
-    primary: {
+    common: {
+      primaryLight,
+      primaryMain,
+      primaryDark,
+      primaryOpacity,
+      backgroundGrey,
+      netflix: red.A400,
+      disney: purple.A400,
+      prime: orange.A400,
+    },
+    netflix: {
       main: primaryMain,
     },
-    secondary: {
-      main: secondaryMain,
+    primary: {
+      light: primaryLight,
+      main: primaryMain,
     },
     warning: {
       light: amber[500],
@@ -189,15 +235,29 @@ const theme = createTheme({
       dark: lightBlue[600],
       contrastText: white,
     },
-    background: { default: grey[50] },
+    background: {
+      default: white,
+    },
     action: {
       selected: primaryMain,
       hover: primaryOpacity,
     },
   },
   typography: {
-    fontFamily,
-    button: { textTransform: 'capitalize' },
+    fontFamily: ['Roboto', 'Fantasy'].join(','),
+    h6: {
+      fontWeight: 600,
+    },
+    body1: {
+      fontSize: fontSize14,
+      fontWeight: 600,
+    },
+    body2: {
+      fontSize: fontSize14,
+    },
+    button: {
+      textTransform: 'capitalize',
+    },
   },
 });
 

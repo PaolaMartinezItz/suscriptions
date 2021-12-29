@@ -22,6 +22,10 @@ module.exports = {
   rules: {
     complexity: [2, { max: 10 }],
     'linebreak-style': 0,
+    'react/no-unstable-nested-components': [
+      2,
+      { allowAsProps: true },
+    ],
     'react/function-component-definition': [
       0,
       { namedComponents: 'function-declaration' },

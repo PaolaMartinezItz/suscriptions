@@ -11,8 +11,13 @@
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.2",
+    "http-errors": "^1.7.2",
     "nodemon": "^2.0.14",
+    "notistack": "^2.0.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -23,7 +28,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "backend": "node ./node_modules/nodemon/bin/nodemon.js backend/server.js",
+    "backend": "node ./node_modules/nodemon/bin/nodemon.js backend/config/www.js",
     "lint-fix": "eslint --fix ./src/**/*.js"
   },
   "eslintConfig": {
